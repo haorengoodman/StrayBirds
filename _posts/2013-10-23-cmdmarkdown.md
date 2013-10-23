@@ -12,8 +12,11 @@ title: Markdown 编辑器
 您可以使用 **Cmd Makrdown**：
 
 * 整理知识，学习笔记
+
 * 发布日记，杂文，所见所想
+
 * 撰写发布技术文稿（代码支持）
+
 * 撰写发布学术论文（LaTeX 公式支持）
 
 这是一份 Cmd Markdown 的欢迎稿兼使用说明，请保留，如需撰写**新稿件**，点击顶部工具栏右侧的**新建文本**图标或者使用快捷键 **Ctrl+Alt+N**。
@@ -35,8 +38,8 @@ Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以�
      pass
      if __name__ == '__main__':
              print 'hello world'
-             ```
-             想要了解更详细的语法说明，可以参考我们准备的 [Markdown 语法简明手册][1]
+ ```
+想要了解更详细的语法说明，可以参考我们准备的 [Markdown 语法简明手册][1]
 
              总而言之，不同于其它 *所见即所得* 的编辑器：您只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 它目前已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。
 
@@ -109,6 +112,8 @@ Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以�
 作者 [@ghosert][2]     
 于 2013 年 10月 20日    
 上海
+
+REF
 
 [1]: http://www.zybuluo.com/mdeditor?url=http://www.zybuluo.com/static/editor/md-help.markdown
 [2]: http://weibo.com/ghosert
