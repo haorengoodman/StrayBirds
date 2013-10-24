@@ -155,7 +155,7 @@ def hello():
 
 这是一个*斜体*
 
-### 代码
+#### 代码
 
     这是一个*斜体*
 
@@ -165,7 +165,7 @@ def hello():
 
 这是一个**粗体**
 
-### 代码
+#### 代码
 
     这是一个**粗体**
 
@@ -185,11 +185,11 @@ def hello():
 
 ### 图片
 
-### 效果
+#### 效果
 
 ![Wikipedia_logo](http://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png)
 
-### 代码
+#### 代码
 
     ![Wikipedia_logo](http://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png)
 
