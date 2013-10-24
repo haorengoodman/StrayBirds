@@ -211,4 +211,6 @@ $$ \sum^{j-1}\_{k=0}{\widehat{\gamma}\_{kj} z_k} $$
 
 ---
 
+---
+
 特别感谢 [Cmd Markdown](http://www.zybuluo.com/mdeditor?url=http://www.zybuluo.com/static/editor/md-help.markdown)教我使用Markdown
