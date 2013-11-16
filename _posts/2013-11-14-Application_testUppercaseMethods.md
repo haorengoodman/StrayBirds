@@ -1,6 +1,6 @@
 ---
 layout: default
-title: web.py 源代码分析之 test.application.test_UppercaseMethods
+title: web.py 源代码分析之 web.test.application.test_UppercaseMethods
 category: 源代码阅读
 ---
 
