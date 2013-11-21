@@ -5,11 +5,9 @@ title: 首页
 
 {% for cat in site.categories %}
     <h2> {{ cat[0] }} </h2>
-    <ul>
+    <ul class="post-list">
         {% for post in cat[1] %}
-        <h3>
-            <li>{{ post.date | date_to_string }} <a href="{{site.baseurl}}{{post.url}}"> {{post.title}}</a> </li>
-        </h3>
+          <li>{{ post.date | date_to_string }}<a href="{{site.baseurl}}{{post.url}}"> {{post.title}}</a></li>
         {% endfor %}
     </ul>
 {% endfor %}
