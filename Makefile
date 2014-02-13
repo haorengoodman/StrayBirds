@@ -6,5 +6,5 @@ deploy:
 	cp -r /tmp/_site/* ./
 	git add -A
 	git commit -m "deploy blog"
-	git push orign gh-pages
+	git push origin gh-pages
 	echo "deploy succeed"
