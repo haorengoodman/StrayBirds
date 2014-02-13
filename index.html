@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -234,16 +235,34 @@
     <li>
       <div class="post-title">
         <a href="/StrayBirds/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2014/01/24/wsgiref-src-intro.html"> wsgiref 源代码分析</a> </br>
+=======
+---
+layout: default
+title: 首页
+---
+
+<ul class="post-list">
+    {% for post in paginator.posts %}
+    <li>
+      <div class="post-title">
+        <a href="{{site.baseurl}}{{post.url}}"> {{post.title}}</a> </br>
+>>>>>>> 495f289cfde93b9d4312107fac4e3c4bf783eebb
       </div>
 
       <div class="post-info">
         <ol>
+<<<<<<< HEAD
           <li class="post-time">2014-01-24</li> 
           <li class="post-category"> 源代码阅读 </li>
+=======
+          <li class="post-time">{{ post.date | date: "%F" }}</li> 
+          <li class="post-category"> {{ post.category }} </li>
+>>>>>>> 495f289cfde93b9d4312107fac4e3c4bf783eebb
         </ol>
       </div>
 
       <div class="post-preview">
+<<<<<<< HEAD
         <h1>wsgiref 源代码分析</h1>
 
 <h2>wsgiref</h2>
@@ -691,3 +710,39 @@ simple_server模块将HTTP服务器分成了 Server 部分和Handler部分，前
     </div>
   </body>
 </html>
+=======
+        {{ post.excerpt }} 
+        <a href="{{site.baseurl}}{{post.url}}"> Read More ... </a> </br>
+      </div>
+
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      {{ page }}
+    {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
+>>>>>>> 495f289cfde93b9d4312107fac4e3c4bf783eebb
