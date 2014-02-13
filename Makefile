@@ -1,5 +1,8 @@
 deploy:
 	git checkout master
+	jekyll build
+	git add -A
+	git commit -m "update master"
 	cp -r _site/ /tmp/
 	git checkout gh-pages
 	rm -r ./*
