@@ -20,6 +20,7 @@ WSGI 不能规定的太复杂，否则对已有的服务器来说，实现起来
 
 另一方面，WSGI需要使得middleware（是中间件么？）易于实现。middleware处于服务器程序与应用程序之间，对服务器程序来说，它相当于应用程序，对应用程序来说，它相当于服务器程序。这样，对用户请求的处理，可以变成多个 middleware 叠加在一起，每个middleware实现不同的功能。请求从服务器来的时候，依次通过middleware，响应从应用程序返回的时候，反向通过层层middleware。我们可以方便地添加，替换middleware，以便对用户请求作出不同的处理。
 
+
 ## WSGI 内容概要
 WSGI主要是对应用程序与服务器端的一些规定，所以，它的主要内容就分为两个部分。
 
@@ -41,7 +42,7 @@ WSGI规定：
 
 这样，如果这个对象是函数的话，它看起来要是这个样子：
 
-```
+```python
 # callable function
 def application(environ, start_response):
     pass
@@ -49,7 +50,7 @@ def application(environ, start_response):
 
 如果这个对象是一个类的话，它看起来是这个样子：
 
-```
+```python
 # callable class
 class Application:
     def __init__(self, environ, start_response):
@@ -58,7 +59,7 @@ class Application:
 
 如果这个对象是一个类的实例，那么，这个类看起来是这个样子：
 
-```
+```python
 # callable object
 class ApplicationObj:
     def __call__(self, environ, start_response):
@@ -71,7 +72,7 @@ class ApplicationObj:
 
 这样的话，前面的三个例子就变成：
 
-```
+```python
 HELLO_WORLD = b"Hello world!\n"
 
 
@@ -98,7 +99,7 @@ class ApplicationObj:
 你可能会说，不是啊，我们平时写的web程序不是这样啊。
 比如如果使用web.py框架的话，一个典型的应用可能是这样的:
 
-```
+```python
 class hello:
     def GET(self):
         return 'Hello, world!'
@@ -118,7 +119,7 @@ WSGI规定：
 
 服务器程序看起来大概是这个样子的：
 
-```
+```python
 def run(application):
     environ = {}
 
@@ -156,7 +157,7 @@ middleware对服务器程序和应用是透明的，也就是说，服务器程�
 
 下面，我们看看middleware大概是什么样子的。
 
-```
+```python
 # URL Routing middleware
 def urlrouting(url_app_mapping):
     def midware_app(environ, start_response):
@@ -188,13 +189,13 @@ def urlrouting(url_app_mapping):
 所谓位置参数就是调用的时候，依靠位置来确定参数的语义，而不是参数名，也就是说服务
 器调用应用程序时，应该是这样：
 
-```
+```python
 application(env, start_response)
 ```
 
 而不是这样：
 
-```
+```python
 application(start_response=start_response, environ=env)
 ```
 
@@ -205,7 +206,7 @@ application(start_response=start_response, environ=env)
 也可以包含一些扩展参数，命名规范见后文
 * start_response参数是一个可调用对象。接受两个位置参数，一个可选参数。
 例如：
-```
+```python
 start_response(status, response_headers, exc_info=None)
 ```
 status参数是状态码，例如 `200 OK` 。 
@@ -233,7 +234,7 @@ status和response_headers的具体内容可以参考 [HTTP 协议 Response部分
 
 根据上述内容，我们的服务器程序看起来会是这个样子：
 
-```
+```python
 def run(application):
     environ = {}
 
@@ -261,7 +262,7 @@ def run(application):
 
 应用程序看起来是这个样子：
 
-```
+```python
 HELLO_WORLD = b"Hello world!\n"
 
 
@@ -305,7 +306,7 @@ WSGI 有一个参考实现，叫 wsgiref，里面有一个示例，我们这里�
 
 上面提到的变量值为：
 
-```
+```python
 REQUEST_METHOD = 'GET'
 SCRIPT_NAME = ''
 PATH_INFO = '/xyz'
@@ -349,7 +350,7 @@ HTTP_USER_AGENT = 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like
 
 这些值在 wsgiref示例中的值为：
 
-```
+```python
 wsgi.errors = <open file '<stderr>', mode 'w' at 0xb735f0d0>
 wsgi.file_wrapper = <class wsgiref.util.FileWrapper at 0xb70525fc>
 wsgi.input = <socket._fileobject object at 0xb7050e6c>
@@ -387,13 +388,13 @@ wsgi.version = (1, 0)
 ## start_response() 
 start_response是HTTP响应的开始，它的形式为：
 
-```
+```python
 start_response(status, response_headers, exc_info=None)
 ```
 
 返回一个可调用对象，这个可调用对象形式为：
 
-```
+```python
 write(body_data)
 ```
 
@@ -416,7 +417,7 @@ start_response raise出的  exceptions，应该交给服务器程序处理。
 为了避免循环引用，start_response实现时需要保证 exc_info在函数调用后不再包含引用。
 也就是说start_response用完 exc_info后，需要保证执行一句
 
-```
+```python
 exc_info = None
 ```
 
@@ -463,7 +464,7 @@ WSGI 中据说的 `bytestrings` ， 在Python3中指 `bytes`，在以前的Pytho
 应用程序应该捕获它们自己的错误，internal erros， 并且将相关错误信息返回给浏览器。
 WSGI 提供了一种错误处理的方式，这就是之前提到的 exc_info参数。下面是 PEP 3333中提供的一段示例：
 
-```
+```python
 try:
     # regular application code here
     status = "200 Froody"
