@@ -2,6 +2,7 @@
 layout: default
 title: 字符指针与字符数组真正的区别
 category: 技术
+comments: true
 ---
 
 # 字符指针与字符数组真正的区别

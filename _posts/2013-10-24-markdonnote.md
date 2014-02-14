@@ -2,6 +2,7 @@
 layout: default
 title: 使用 Markdown
 category: 工具
+comments: true
 ---
 
 # 为什么使用 Markdown

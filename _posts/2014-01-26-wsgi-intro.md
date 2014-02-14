@@ -2,6 +2,7 @@
 layout: default
 title: WSGI 简介
 category: 技术
+comments: true
 ---
 
 #WSGI 简介 
