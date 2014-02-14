@@ -56,6 +56,12 @@ article {
     font-size: 120%;
 }
 
+.comments {
+    width: 1080px;
+    margin: 0px 300px 0px 250px;
+    padding: 10px 0px 10px 0px;
+}
+
 aside {
     width: 200px;
     height: 700px;
@@ -204,3 +210,4 @@ img {
 .pagination {
     text-align: center;
 }
+
